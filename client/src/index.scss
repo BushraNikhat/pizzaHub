@@ -1,0 +1,459 @@
+@import "./variables";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Lato', sans-serif !important;
+  background-color: $mild !important;
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none !important;
+  color: $pure !important;
+}
+p{
+  color: $grey;
+}
+h2{
+  color: $dark;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white);
+  box-shadow: inset 0 0 5px grey;
+  background-clip: content-box;
+
+}
+::-webkit-scrollbar-thumb {
+  background-color:$grey;
+  border-radius: 50px;
+}
+@mixin button{
+  color: $pure;
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 700;
+  background-color: $primary;
+  border-radius: 30px;
+  align-self: flex-start;
+  transition: $smooth;
+  &:hover{
+   background-color: $primary-hover;
+  }
+  &:focus{
+    box-shadow: none;
+  }
+}
+
+// navbar
+.nav{
+  background-color: $pure;
+  .navbar-brand{
+    font-weight: 700;
+    color: $dark !important;
+  }
+  .navbar-brand img{
+    width: 40px;
+    height: 40px;
+    
+  }
+  nav .navbar-nav li .nav-link{
+    color: $dark !important;
+    transition: $smooth;
+    &:hover{
+      color: $primary-hover !important;
+      
+    }
+  }
+  nav .navbar-nav li:nth-child(4) .nav-link{
+    color: $pure !important;
+    background-color:$primary ;
+    border-radius:30px;
+    &:hover{
+      background-color: $primary-hover !important;
+      
+    }
+  }
+  
+}
+.navbar-toggler{
+  outline: none !important;
+}
+.navbar-toggler:focus{
+  box-shadow: none !important;
+}
+
+// header
+.header{
+  .item_container{
+    width: 100%;
+   .item_left{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     .btn{
+      @include button;
+     }
+   }
+   .item_right{
+        width: 50%;
+        img{
+          width: 90%;
+        }
+   }
+}
+}
+
+
+// pizzaItems
+.pizzaItem{
+
+  .pizza{
+    .paper{
+      img{
+        width: 150px;
+        height: 150px;
+      }
+      .price{
+        font-weight: 700;
+      }
+      .paper_btn{
+        font-family: 'Lato', sans-serif !important;
+        font-weight: 700;
+        color: $primary !important;
+        border-radius: 30px;
+        border: 2px solid $primary;
+      }
+    }
+   
+  } 
+}
+.noty_theme__mint.noty_bar{
+  border-radius: 50px  !important;
+  padding-left: 8px !important;
+}
+
+// emptyCart
+.cart{
+  height: 100vh;
+  background-color: $pure;
+  .cart_col{
+    height: 100vh;
+  }
+}
+.emptyCartContainer{
+    height: 80%;
+    width: 80%;
+  .empty{
+    // height: 18%;
+    .sad{
+      color: #ffde34;
+    }
+  }
+  .emptyImgContainer{
+    width: 65%;
+    height:70%;
+
+    img{
+      width: 100%;
+      height:100%;
+    }
+   
+  }
+  .btn{
+    @include button;
+  }
+  
+}
+
+// FullCart css
+
+.order_container{
+  
+  color: $dark;
+  width: 80%;
+  .order{
+    position: relative;
+    .order_type{
+      img{
+        width: 90px;
+        height: 90px;
+      }
+    }
+    .order_qty_mng{
+      .button{
+        min-width: 50px !important;
+      }
+    }
+    .remove{
+      position: absolute;
+      top: 0;
+      right:-7%;
+    }
+  }
+  .order_bottom{
+   h6 span{
+      color: $primary;
+    }
+    input{
+      width: 30%;
+      min-width: 220px;
+      &:focus{
+          box-shadow: none !important;
+          outline: none !important;
+      }
+    }
+    .btn{
+      @include button;
+    }
+  }
+}
+
+// login and register
+
+.form{
+  min-height:  90vh;
+  .form_col{
+    height: 90vh;
+    form{
+      background-color: $pure;
+      label{
+        font-weight: 700;
+      }
+      input{
+        &:focus{
+          box-shadow: none;
+        }
+        
+      }
+      .btn{
+        @include button;
+        
+      }
+      a{
+        color: $primary !important;
+        font-weight: 700;
+        font-size: 14px;
+        transition: $smooth;
+        &:hover{
+          color: $primary-hover !important;
+        }
+      }
+    }
+  }
+}
+
+// table of my order page
+
+.table{
+  
+  .order_id{
+    color:$primary;
+    cursor: pointer;
+        
+  }
+}
+
+
+
+// order status page
+.order_status_container{
+  min-height: calc(100vh - 70px);
+  .order_status_box{
+    height: 90%;
+    ul{
+      margin-left: 40px;
+
+    }
+    ul li{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+      ul li span{
+        position: relative;
+        padding-left: 20px;
+
+        &::after{
+          content: "";
+          position: absolute;
+          left: -10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: $dark;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+        &::before{
+         
+          font-family: "Material Icons"; 
+          font-size: 30px;
+          position: absolute;
+          top: 50%;
+          left: -50px;
+          transform: translateY(-50%);  
+          color: inherit !important;
+        }
+        
+      }
+      ul li:nth-child(1) span::before{
+        content: "\e862";
+      }
+      ul li:nth-child(2) span::before{
+        content: "\e877";
+      }
+      ul li:nth-child(3) span::before{
+        content: "\e552";
+      }
+      ul li:nth-child(4) span::before{
+        content: "\eb3c";
+      }
+      ul li:nth-child(5) span::before{
+        content: "\ea22";
+      }
+    ul li{
+      position: relative;
+      margin-bottom: 10px;
+    }
+      ul li::before{
+        content: '';
+        position: absolute;
+        top: 0%;
+        left: -6px;
+        margin-top: 10px;
+        width: 2px;
+        height: 100%;
+        background-color: $dark;
+      }
+      ul li:nth-child(5):before{
+          display: none;
+      }
+      // completed
+      // line
+    ul li.step_completed::before{
+      background-color: $grey;
+    }
+  // text
+    ul li.step_completed{
+      color: $grey;
+    }
+
+      // dots
+    ul li.step_completed span::after{
+      background-color: $grey;
+    }
+
+    // current status
+    
+  
+  // text
+    ul li.current{
+      color: $primary;
+    }
+      // dots
+    ul li.current span::after{
+      background-color: $primary !important;
+    }
+  }
+
+}
+
+@media(max-width:991px){
+ // navbar
+ nav .navbar-nav li:last-child .nav-link{
+
+  display:inline-block;
+
+}
+//cart order container
+.order_container{
+  
+  width: 100%;
+}
+
+
+}
+@media(max-width:767px){
+ 
+// header
+.item_container{
+
+  .item_left{
+    h1{
+      font-weight: 500 !important;
+    }}
+    .item_right{
+      img{
+        width: 100% !important;
+      }
+    }
+  
+}
+// empty cart
+.emptyImgContainer{
+  width: 100% !important;
+  height:70%;
+
+  img{
+    width: 100%;
+    height:100%;
+  }
+ 
+}
+
+}
+@media(max-width:575px){
+  .emptyCartContainer{
+    height:45%;
+  }
+
+  // order status
+  ul li span{
+    padding-left: 10px !important;
+
+    &::before{
+     
+      font-size: 24px !important;
+    }
+    
+  }
+}
+
+@media(max-width:420px){
+// header
+.item_container{
+  .item_left{
+    h1{
+      font-size: 24.8px;
+    }
+  }
+    .item_right{
+      img{
+       width: 85% !important;
+      }
+    }
+  
+}
+.pizzaItem .pizza .paper img {
+  width: 130px;
+  height: 130px;
+}
+
+}
+@media(max-height:500px) and (orientation: landscape) {
+  .form{
+   padding-top: 20px !important;
+  }
+}
