@@ -1,6 +1,7 @@
 // dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const path = require('path');
 const Emitter = require('events');
 require('dotenv').config({path:path.join(__dirname,"./config.env")});
@@ -37,7 +38,7 @@ app.use(express.json())
 app.use(express.urlencoded({
     extended:false
 }))
-// app.use(cors());
+app.use(cors());
 app.use("/pizza",authRoute)
 app.use("/pizza",homeRoute)
 
